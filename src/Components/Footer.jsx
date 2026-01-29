@@ -1,158 +1,129 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Youtube } from 'lucide-react';
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Twitter,
+  Facebook,
+  Youtube,
+} from 'lucide-react';
+
+/* Move static data outside component */
+const footerLinks = {
+  Product: [
+    { name: 'Features', href: '#features' },
+    { name: 'Pricing', href: '#pricing' },
+    { name: 'Security', href: '#security' },
+    { name: 'Integrations', href: '#integrations' },
+    { name: 'Mobile App', href: '#mobile' },
+  ],
+  Solutions: [
+    { name: 'General Contractors', href: '#gc' },
+    { name: 'Subcontractors', href: '#sub' },
+    { name: 'Project Owners', href: '#owners' },
+    { name: 'EPC Firms', href: '#epc' },
+    { name: 'Real Estate', href: '#realestate' },
+  ],
+  Resources: [
+    { name: 'Documentation', href: '#docs' },
+    { name: 'API Reference', href: '#api' },
+    { name: 'Case Studies', href: '#cases' },
+    { name: 'Blog', href: '#blog' },
+    { name: 'Webinars', href: '#webinars' },
+  ],
+  Company: [
+    { name: 'About Us', href: '#about' },
+    { name: 'Careers', href: '#careers' },
+    { name: 'Contact', href: '#contact' },
+    { name: 'Partners', href: '#partners' },
+    { name: 'Press Kit', href: '#press' },
+  ],
+};
 
 const Footer = () => {
-  const footerLinks = {
-    product: [
-      { name: 'Features', href: '#features' },
-      { name: 'Pricing', href: '#pricing' },
-      { name: 'Security', href: '#security' },
-      { name: 'Integrations', href: '#integrations' },
-      { name: 'Mobile App', href: '#mobile' },
-    ],
-    solutions: [
-      { name: 'General Contractors', href: '#gc' },
-      { name: 'Subcontractors', href: '#sub' },
-      { name: 'Project Owners', href: '#owners' },
-      { name: 'EPC Firms', href: '#epc' },
-      { name: 'Real Estate', href: '#realestate' },
-    ],
-    resources: [
-      { name: 'Documentation', href: '#docs' },
-      { name: 'API Reference', href: '#api' },
-      { name: 'Case Studies', href: '#cases' },
-      { name: 'Blog', href: '#blog' },
-      { name: 'Webinars', href: '#webinars' },
-    ],
-    company: [
-      { name: 'About Us', href: '#about' },
-      { name: 'Careers', href: '#careers' },
-      { name: 'Contact', href: '#contact' },
-      { name: 'Partners', href: '#partners' },
-      { name: 'Press Kit', href: '#press' },
-    ],
-  };
-
   return (
     <footer className="bg-gray-900 text-gray-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 py-12">
+
         {/* Top Section */}
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8 pb-12 border-b border-gray-800">
-          {/* Brand Column */}
+
+          {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-800 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">B</span>
+              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xl">SB</span>
               </div>
-              <span className="text-2xl font-display font-bold text-white">BuildPro</span>
+              <span className="text-2xl font-bold text-white">Strivo Brickly</span>
             </div>
-            <p className="text-gray-400 mb-6 leading-relaxed">
+
+            <p className="text-gray-400 mb-6">
               Complete construction management platform for on-time, on-budget project delivery.
             </p>
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 text-sm">
-                <Mail size={16} className="text-primary-400" />
-                <a href="mailto:info@buildpro.com" className="hover:text-white transition-colors">
-                  info@buildpro.com
-                </a>
+
+            <div className="space-y-3 text-sm">
+              <div className="flex items-center gap-3">
+                <Mail size={16} className="text-blue-400" />
+                <a href="mailto:hr.strivobrickly@gmail.com">hr.strivobrickly@gmail.com</a>
               </div>
-              <div className="flex items-center gap-3 text-sm">
-                <Phone size={16} className="text-primary-400" />
-                <a href="tel:+1234567890" className="hover:text-white transition-colors">
-                  +1 (234) 567-890
-                </a>
+              <div className="flex items-center gap-3">
+                <Phone size={16} className="text-blue-400" />
+                <a href="tel:+91234567890">+91234567890</a>
               </div>
-              <div className="flex items-center gap-3 text-sm">
-                <MapPin size={16} className="text-primary-400" />
-                <span>San Francisco, CA</span>
+              <div className="flex items-center gap-3">
+                <MapPin size={16} className="text-blue-400" />
+                <span>Delhi,NCR</span>
               </div>
             </div>
           </div>
 
-          {/* Product Links */}
-          <div>
-            <h3 className="text-white font-bold mb-4">Product</h3>
-            <ul className="space-y-2">
-              {footerLinks.product.map((link, index) => (
-                <li key={index}>
-                  <a href={link.href} className="text-sm hover:text-white transition-colors">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Solutions Links */}
-          <div>
-            <h3 className="text-white font-bold mb-4">Solutions</h3>
-            <ul className="space-y-2">
-              {footerLinks.solutions.map((link, index) => (
-                <li key={index}>
-                  <a href={link.href} className="text-sm hover:text-white transition-colors">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources Links */}
-          <div>
-            <h3 className="text-white font-bold mb-4">Resources</h3>
-            <ul className="space-y-2">
-              {footerLinks.resources.map((link, index) => (
-                <li key={index}>
-                  <a href={link.href} className="text-sm hover:text-white transition-colors">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company Links */}
-          <div>
-            <h3 className="text-white font-bold mb-4">Company</h3>
-            <ul className="space-y-2">
-              {footerLinks.company.map((link, index) => (
-                <li key={index}>
-                  <a href={link.href} className="text-sm hover:text-white transition-colors">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Dynamic Link Columns */}
+          {Object.entries(footerLinks).map(([section, links]) => (
+            <div key={section}>
+              <h3 className="text-white font-semibold mb-4">{section}</h3>
+              <ul className="space-y-2">
+                {links.map(link => (
+                  <li key={link.name}>
+                    <a
+                      href={link.href}
+                      className="text-sm hover:text-white transition"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         {/* Bottom Section */}
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-sm text-gray-500">
-            © 2024 BuildPro. All rights reserved.
-          </div>
-          
-          {/* Social Links */}
-          <div className="flex items-center gap-4">
-            <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
-              <Linkedin size={18} />
-            </a>
-            <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
-              <Twitter size={18} />
-            </a>
-            <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
-              <Facebook size={18} />
-            </a>
-            <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-600 transition-colors">
-              <Youtube size={18} />
-            </a>
+
+          <p className="text-sm text-gray-500">
+            © 2026 Strivo Brickly. All rights reserved.
+          </p>
+
+          {/* Social */}
+          <div className="flex gap-4">
+            {[Linkedin, Twitter, Facebook, Youtube].map((Icon, i) => (
+              <a
+                key={i}
+                href="#"
+                aria-label="Social link"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition"
+              >
+                <Icon size={18} />
+              </a>
+            ))}
           </div>
 
-          {/* Legal Links */}
-          <div className="flex items-center gap-6 text-sm text-gray-500">
-            <a href="#privacy" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#terms" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#cookies" className="hover:text-white transition-colors">Cookie Policy</a>
+          {/* Legal */}
+          <div className="flex gap-6 text-sm text-gray-500">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+            <a href="#cookies">Cookie Policy</a>
           </div>
         </div>
       </div>
@@ -160,4 +131,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default React.memo(Footer);
