@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Button from "./Button";
+import logo from '../assets/logo.png';
 
 const navItems = [
   { label: "Features", href: "#features" },
@@ -29,13 +30,17 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-600 to-primary-800 flex items-center justify-center">
-              <span className="text-white font-bold text-xl">B</span>
+              <span className=""> <img
+                src={logo}
+                alt="Company Logo"
+                className="h-14 w-auto"
+              /></span>
             </div>
             <span
               className={`text-2xl font-bold transition-colors ${isScrolled ? "text-gray-900" : "text-white"
                 }`}
             >
-             Strivo Brickly
+              Strivo Brickly
             </span>
           </div>
 

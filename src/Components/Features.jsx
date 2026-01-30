@@ -241,9 +241,9 @@ const Features = () => {
               className="relative"
             >
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                <div className="aspect-[9/16] bg-gradient-to-br from-white to-gray-200 rounded-xl shadow-2xl flex items-center justify-center">
-                  <span className="text-gray-500 font-semibold">
-                    Mobile App Preview
+                <div className="aspect-[9/13] bg-gradient-to-br from-white to-gray-200 rounded-xl shadow-2xl flex items-center justify-center">
+                  <span>
+                    <img src="\Mobile-view.jpeg" alt="Mobile-view"/>
                   </span>
                 </div>
               </div>

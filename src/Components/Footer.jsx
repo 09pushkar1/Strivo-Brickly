@@ -9,7 +9,7 @@ import {
   Youtube,
 } from 'lucide-react';
 
-/* Move static data outside component */
+/* Static footer links */
 const footerLinks = {
   Product: [
     { name: 'Features', href: '#features' },
@@ -41,6 +41,30 @@ const footerLinks = {
   ],
 };
 
+/* Social links (NEW) */
+const socialLinks = [
+  {
+    icon: Linkedin,
+    url: 'https://www.linkedin.com/company/strivo-brickly',
+    label: 'LinkedIn',
+  },
+  {
+    icon: Twitter,
+    url: '#',
+    label: 'Twitter',
+  },
+  {
+    icon: Facebook,
+    url: '#',
+    label: 'Facebook',
+  },
+  {
+    icon: Youtube,
+    url: '#',
+    label: 'YouTube',
+  },
+];
+
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-300">
@@ -52,10 +76,12 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">SB</span>
+              <div className="w-6 h-6  rounded-lg flex items-center justify-center">
+                <span><img src="\logo.png" alt="Logo" /></span>
               </div>
-              <span className="text-2xl font-bold text-white">Strivo Brickly</span>
+              <span className="text-2xl font-bold text-white">
+                Strivo Brickly
+              </span>
             </div>
 
             <p className="text-gray-400 mb-6">
@@ -65,15 +91,19 @@ const Footer = () => {
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-3">
                 <Mail size={16} className="text-blue-400" />
-                <a href="mailto:hr.strivobrickly@gmail.com">hr.strivobrickly@gmail.com</a>
+                <a href="mailto:hr.strivobrickly@gmail.com">
+                  hr.strivobrickly@gmail.com
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={16} className="text-blue-400" />
-                <a href="tel:+91234567890">+91234567890</a>
+                <a href="tel:+91234567890">
+                  +91 23456 7890
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin size={16} className="text-blue-400" />
-                <span>Delhi,NCR</span>
+                <span>Delhi, NCR</span>
               </div>
             </div>
           </div>
@@ -81,7 +111,9 @@ const Footer = () => {
           {/* Dynamic Link Columns */}
           {Object.entries(footerLinks).map(([section, links]) => (
             <div key={section}>
-              <h3 className="text-white font-semibold mb-4">{section}</h3>
+              <h3 className="text-white font-semibold mb-4">
+                {section}
+              </h3>
               <ul className="space-y-2">
                 {links.map(link => (
                   <li key={link.name}>
@@ -105,13 +137,15 @@ const Footer = () => {
             © 2026 Strivo Brickly. All rights reserved.
           </p>
 
-          {/* Social */}
+          {/* Social Icons */}
           <div className="flex gap-4">
-            {[Linkedin, Twitter, Facebook, Youtube].map((Icon, i) => (
+            {socialLinks.map(({ icon: Icon, url, label }, i) => (
               <a
                 key={i}
-                href="#"
-                aria-label="Social link"
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
                 className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition"
               >
                 <Icon size={18} />
